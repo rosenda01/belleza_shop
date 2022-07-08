@@ -1,0 +1,90 @@
+{% extends 'admintemplates.html' %}
+{% load static %}
+
+
+ {% block content %}
+<head>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Mukta:wght@300;400;600;700;800&family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <style type="text/css">
+      
+            body {
+              font-family: Mukta, sans-serif;
+              height: 100vh;
+              display: grid;
+              justify-content: center;
+              align-items: center;
+              color: $clr-gray500;
+              font-size: 0.9rem;
+              background-color: $clr-gray100;
+            }
+
+            table {
+              border-collapse: collapse;
+              box-shadow: 0 5px 10px $clr-gray300;
+              background-color: white;
+              text-align: left;
+              overflow: hidden;
+              border: 1px solid;
+              margin-top: -10rem;
+                }
+              thead {
+                box-shadow: 0 5px 10px $clr-gray300;
+              }
+
+              th {
+                padding: 1rem 2rem;
+                text-transform: uppercase;
+                letter-spacing: 0.1rem;
+                font-size: 0.7rem;
+                font-weight: 900;
+              }
+
+              td {
+                padding: 1rem 2rem;
+              }
+
+              a {
+                text-decoration: none;
+                color: $clr-link;
+              }
+              .btn{
+                text-align: center;
+              }
+              .heads{
+                margin: 0;
+                text-align: center;
+              }
+  </style>
+</head>
+
+<body>
+    <h1 class="heads">Products</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Category</th>
+        <th>Description</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for item in products%}
+      <tr>
+        <td>{{item.name}}</td>
+        <td>{{item.price}}</td>
+        <td>{{item.category}}</td>
+        <td>{{item.description}}</td>
+        <td><a href="{% url 'UpdateProduct' item.id %}">Update</a></td>
+        <td><a href="{% url 'DeleteProduct' item.id %}">Delete</a></td>
+      </tr>
+      {% endfor %}
+ 
+  </table>
+  <a href="{% url 'AddProduct' %}" class="btn">Add Product</a>
+</body>
+
+ {% endblock %}

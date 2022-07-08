@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	 <link rel="stylesheet" href="{%static 'css/style.css' %}">
+	<title>Belleza Co.</title>
+</head>
+<body>
+	<header class="header">
+        <a href="{% url 'Home' %}"><img src="{% static 'images/logo.png' %}" class="logo"></a>
+
+        <nav class="navbar">
+        <a href="{% url 'OwnerDashboard' %}">home</a>
+        <a href="{% url 'OwnerProduct' %}">products</a>
+        <a href="{% url 'OwnerOrder' %}">orders</a>
+    </nav>
+
+    <div class="icons">
+
+        <a href="" ><img src="{% static 'images/cart.png' %}" class="cart-btn"></a>
+        
+
+        
+    </div>
+    </header>
+	{% block content %}
+
+	{% endblock %}
+</body>
+</html>

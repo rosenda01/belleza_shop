@@ -1,0 +1,33 @@
+{% load static %}
+<html>
+<head>
+    {% block content %}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Belleza Co.</title>
+        <link rel="stylesheet" href="{%static 'css/style.css' %}">
+</head>
+<body>
+        <header class="header">
+        <a href="{% url 'Home' %}"><img src="{% static 'images/logo.png' %}" class="logo"></a>
+
+        <nav class="navbar">
+        <a href="{% url 'Home' %}">home</a>
+        <a href="{% url 'Products' %}">products</a>
+        <a href="{% url 'ReviewPage' %}">Review</a>
+        <a href="{% url 'CreateOrder' %}">Order</a>
+        <a href="{% url 'Cart' %}">Cart</a>
+    </nav>
+
+    <div class="icons">
+
+        <span>Hello, {{request.user}}</span>
+        <a href="{% url 'logoutUser' %}">Logout</a> 
+        <br>
+    </div>
+    </header>
+
+        
+</body>
+</html>
+{% endblock %}

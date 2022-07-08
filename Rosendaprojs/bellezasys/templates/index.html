@@ -1,0 +1,36 @@
+{% extends 'templates.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    {% block content %}
+
+
+	<div class="content" style="background:url({%static 'images/bg1.jpg' %}) no-repeat; background-size: cover">
+		<div class="content-text">
+		<span>upto 20% off</span><br><br>
+        <h3>Women's Fashion</h3>
+        <a href="{% url 'Products' %}">Shop Now</a>
+        <br>
+        </div>
+
+        <div class="box1" style="background:url({%static 'images/box1.png' %}) no-repeat; background-size: 500px 250px;">
+        	<div class="content-text">
+        	<span>special offer</span>
+            <h3>upto 20% off</h3>
+            <a href="{% url 'Products' %}">Shop Now</a>
+            </div>
+        </div>
+        <div class="box2" style="background:url({%static 'images/box2.png' %}) no-repeat; background-size: 500px 250px;">
+        	<div class="content-text">
+        	<span>special offer</span>
+            <h3>upto 20% off</h3>
+            <!-- <a href="#" class="btn">shop now</a> -->
+            <a href="{% url 'Products' %}">Shop Now</a>
+            </div>
+        </div>
+
+	</div>
+    {% endblock %}
+</body>
+</html>

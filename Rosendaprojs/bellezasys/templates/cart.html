@@ -1,0 +1,85 @@
+{% extends 'templates.html' %}
+{% load static %}
+
+
+ {% block content %}
+<head>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Mukta:wght@300;400;600;700;800&family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <style type="text/css">
+      
+            body {
+              font-family: Mukta, sans-serif;
+              height: 100vh;
+              display: grid;
+              justify-content: center;
+              align-items: center;
+              color: $clr-gray500;
+              font-size: 0.9rem;
+              background-color: $clr-gray100;
+            }
+
+            table {
+              border-collapse: collapse;
+              box-shadow: 0 5px 10px $clr-gray300;
+              background-color: white;
+              text-align: left;
+              overflow: hidden;
+              border: 1px solid;
+              margin-top: -35rem;
+                }
+              thead {
+                box-shadow: 0 5px 10px $clr-gray300;
+              }
+
+              th {
+                padding: 1rem 2rem;
+                text-transform: uppercase;
+                letter-spacing: 0.1rem;
+                font-size: 0.7rem;
+                font-weight: 900;
+              }
+
+              td {
+                padding: 1rem 2rem;
+              }
+
+              a {
+                text-decoration: none;
+                color: $clr-link;
+              }
+              .btn{
+                text-align: center;
+              }
+              .heads{
+                margin: 0;
+                text-align: center;
+              }
+  </style>
+</head>
+
+<body>
+    <h1 class="heads">Orders</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Customer</th>
+        <th>Product</th>
+        <th>Price</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for item in orders%}
+      <tr>
+        <td>{{item.name}} | {{item.phone}} | {{item.address}}</td>
+        <td>{{item.product.name}}</td>
+        <td>{{item.product.price}}</td>
+        <td>{{item.status}}</td>
+      </tr>
+      {% endfor %}
+ 
+  </table>
+</body>
+
+ {% endblock %}

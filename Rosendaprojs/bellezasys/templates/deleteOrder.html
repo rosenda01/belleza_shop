@@ -1,0 +1,16 @@
+{% extends 'admintemplates.html' %}
+{% load static %}
+
+ {% block content %}
+<div class="content">
+    <p>Do you really want to delete "{{item}}"?</p>
+
+    <form method="POST" action="{% url 'DeleteOrder' item.id %}">
+        {% csrf_token %}
+        <a href="{% url 'OwnerOrder' %}">Cancel</a>
+        <input type="submit" name="Submit" value="Confirm" class="btn">
+
+    </form>
+    
+</div>
+ {% endblock %}

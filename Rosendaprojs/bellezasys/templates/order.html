@@ -1,0 +1,15 @@
+{% extends 'templates.html' %}
+{% load static %}
+
+
+ {% block content %}
+<div class="content" style="background-color: pink; padding: 10rem 0rem;text-align: center;margin-top: 10rem;">
+    <span>Hello, {{request.user}}</span><br><br>
+    <form method="POST" style="font-size: 1.2rem;">
+        {% csrf_token %}
+        {{form.as_p}}
+        
+        <input type="submit" name="Submit" value="Submit" class=btn>
+    </form>
+</div>
+ {% endblock %}
